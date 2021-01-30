@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMIS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='emis_css/style.css') }}">
+</head>
+
+<body>
+    <div id='headerTemplate' class="container">
+        <div class="d-flex justify-content-between">
+            <a class="p-1 text-secondary" href="{{ url_for('about') }}">About</a>
+            {% if current_user.is_authenticated %}
+            <div class="p-1">
+                <a href="{{ url_for('account') }}" class="text-light">Account Name: {{ base_user.query.get(current_user.get_id()).fullname }}</a>
+                <a href="{{ url_for('logout') }}" class="text-light ml-3">Logout</a></div>
+  
+            {% else %}
+            <div class="p-1"><a href="{{ url_for('login') }}" class="text-light">Login</a></div>
+            {% endif %}
+        </div>
+        <header>
+            <nav class="mt-2 navbar navbar-expand-lg navbar-light bg-info">
+                <a href="" class="navbar-brand font-weight-bold">EMIS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{{ url_for('dashboard') }}"
+                                id="dashboard-nav-link">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold"
+                                href="{{ url_for('engine_list', options='111') }}"
+                                id="list-engines-nav-link">Engines</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{{ url_for('site_list') }}" id="list-sites-nav-link">Sites</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{{ url_for('maint_log_list') }}" id="list-sites-nav-link">Maintenance
+                                Logs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bold" href="{{ url_for('users') }}" id="list-sites-nav-link">Users</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Input Data</a>
+                        </li>
+                    </ul>
+                    <form action="{{ url_for('search') }}" class="form-inline">
+                        <input type="search" class="form-control mr-2" name='q' placeholder="Eng S/N or Log/Site ID"
+                            aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">Search</button>
+
+                    </form>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div id="templateContent" class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+          <div class="row justify-content-center mt-3">
+            <div class="col-md-6 mb-0 alert alert-{{ category }}">
+              {{ message }}
+            </div>
+        </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {% block content %}
+        {% endblock %}
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4"></script>
+    <script src="{{url_for('static', filename='bootstrap/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{url_for('static', filename='bootstrap/js/bootstrap.bundle.js')}}"></script>
+    <script src="{{url_for('static', filename='emis_js/control.js')}}"></script>
+</body>
+
+</html>

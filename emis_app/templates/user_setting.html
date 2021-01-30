@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="formSection">
+    <div class="row justify-content-center mt-3">
+        <form method="POST" action="" class="col-md-6">
+            {{ add_user_form.hidden_tag() }}
+            <div class="form-group">
+                {{ add_user_form.username.label(class="form-control-label text-light justify-content-center") }}
+                {{ add_user_form.username(class="form-control justify-content-center") }}
+            </div>
+            <div class="form-group">
+                {{ add_user_form.fullname.label(class="form-control-label text-light justify-content-center") }}
+                {{ add_user_form.fullname(class="form-control justify-content-center") }}
+            </div>
+            <div class="form-group">
+                {{ add_user_form.email.label(class="form-control-label text-light justify-content-center") }}
+                {{ add_user_form.email(class="form-control justify-content-center") }}
+            </div>
+            <div class="form-group">
+                {{ add_user_form.password.label(class="form-control-label text-light") }}
+                {{ add_user_form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ add_user_form.confirm_password.label(class="form-control-label text-light") }}
+                {{ add_user_form.confirm_password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ add_user_form.admin_key.label(class="form-control-label text-light") }}
+                {{ add_user_form.admin_key(class="form-control") }}
+            </div>
+
+            <div class="form-group">
+                {{ add_user_form.submit(class="btn btn-light") }}
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+{% endblock %}

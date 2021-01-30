@@ -1,0 +1,13 @@
+1,Incoming check
+2,Incoming testing/post testing inspection
+3,Incoming inspection approval pending
+4,Teardown and inspection
+5,Teardown inspection report approval pending
+6,Repairing
+7,Repair stopped - pending for actions
+8,Reassembling
+9,Engine testing
+10,Final inspection
+11,Final inspection approval pending
+12,Preparing for shipment
+13,Case closed

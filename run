@@ -1,0 +1,5 @@
+# pip install -e . 
+# setting dev will automatically set debug mode to true.
+export FLASK_ENV=development
+export FLASK_APP=emis_app
+flask run

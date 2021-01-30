@@ -1,0 +1,7 @@
+1,admin,Admin,System Admin,admin@emisdemo.com,yourpassword,SEAF,1
+2,user1,Demo One,Senior Manager,user1@emisdemo.com,user1,SEAF,1
+3,user2,Demo Two,Factory Manager,user2@emisdemo.com,user2,TORF,2
+4,user3,Demo Three,Maintenance Engineer,user3@emisdemo.com,yourpassword,TORF,3
+5,phx_e,Ludwig Prandtl,Maintenance Engineer,lprandtl@emisdemo.com,yourpassword,PHXF,3
+6,phx_m,Osborne Reynolds,Factory Manager,oreynolds@emisdemo.com,yourpassword,PHXF,2
+7,sea_e,Hermann Von Helmholtz,Maintenance Engineer,hhelmholtz@emisdemo.com,yourpassword,PHXF,3

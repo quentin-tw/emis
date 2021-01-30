@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="text-light mt-2 col-lg-8">
+<h5>About This Demo Website</h5>
+<p class="text-justify">
+    This website is to demonstrate commonly used functionalities of an
+    aircraft engine maintenance information system (EMIS) for factory
+    managers, engineers, and maintenance technicians. It includes multiple
+    authorization levels and content limitation for different users,
+    a general dashboard that put together general information and display
+    the pending repairs that require management actions. It can also provide
+    lists of engines, maintenance details (maintenance log), factories, and 
+    contact personnel with detailed information. 
+</p>
+<h5>Demo Data</h5>
+<p class="text-justify">
+    To show the basic usage of this website, the database is provided
+    with dummy data of 15 engines, 3 maintenace factories, and 6 users. Several
+    engines are assiociated with maintenance log information that contains detail
+    of a given repair event, such as the reason of repair, the current state of repair, 
+    and the responsible personnel. The maintenance log also contains the 
+    starting date and completion date (if completed) of the given repair event.
+    These date are used to calculated the turnaround time of a given repair.
+</p>
+<h5>Demo Users</h5>
+<p class="text-justify">
+    2 user accounts are provided to try out the system. User1 (senior manager) has higher
+    authorization level, which can view all information from different factories.
+    User2 (site manager) can only view the engines and factory information assiociated
+    with the site he/she works in.
+</p>
+<h5>Basic Usage</h5>
+<p class="text-justify">
+    You can login with username user1 (password: user1) or user2 (password: user2) 
+    to access the webpage. Click the tag on the navigation bar for detailed information.
+    You can search for a specific engine, a maintenance log, or a site in the search bar
+    if you know the ID of the given data. Note that if you logged in as user2, 
+    you will not able to get the engine, log, or site data that does not 
+    belongs to the site (TORF) that you work in. Also, you will notice
+    that the dashboard for user1 and user2 contains different information.
+</p>
+<p class="text-justify text-secondary mt-5">
+    Build by Kuen-Hsiang Chen, 2021
+</p>
+
+</div>
+{% endblock %}

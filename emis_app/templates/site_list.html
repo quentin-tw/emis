@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-2">
+    <span class="text-light">Maintenance Site Information: </span>
+    <div class="scrollable">
+        <table class="table table-info table-hover">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" class="align-top">ID</th>
+                    <th scope="col" class="align-top">Site Name</th>
+                    <th scope="col" class="align-top">Grade</th>
+                    <th scope="col" class="align-top">Last Audit Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site in site_objects %}
+                <tr class='siteSummaryRows'>
+                    <th scope="row">{{ site.id }}</th>
+                    <td>{{ site.name }}</td>
+                    <td>{{ site.grade }}</td>
+                    <td>{{ site.last_audit }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-1" id='siteInfoDiv'>
+    <span class="text-light">Engines on Site: </span>
+    <span class="text-light font-weight-bold" id='siteLabel'>(Click any row above)</span>
+    <table class="table table-info">
+        <thead class="thead">
+            <tr class="d-flex">
+                <th scope="col" class="align-top col-3">Engine Serial No.</th>
+                <th scope="col" class="align-top col-2">Engine Part No.</th>
+                <th scope="col" class="align-top col-3">Engine In-date</th>
+                <th scope="col" class="align-top col-4">Maint. Status</th>
+            </tr>
+        </thead>
+        <tbody id='siteEngineDataBody'> <!--Insert by JS-->
+        </tbody>
+    </table>
+</div>
+{% endblock %}

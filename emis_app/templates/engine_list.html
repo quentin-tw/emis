@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-2" id="engineListSummaryDiv" hidden>
+    <div id='listOptions'>
+        <span class="text-light mr-2">Status:</span>
+        <div class="form-check form-check-inline">
+            {% if options[0] == '1' %}
+            <input class="form-check-input" type="checkbox" id="inServiceCheckBox" value="option1" checked>
+            {% else %}
+            <input class="form-check-input" type="checkbox" id="inServiceCheckBox" value="option1">
+            {% endif %}
+            <label class="form-check-label text-light" for="inServiceCheckBox">In service</label>
+        </div>
+        <div class="form-check form-check-inline">
+            {% if options[1] == '1' %}
+            <input class="form-check-input" type="checkbox" id="maintenanceCheckBox" value="option2" checked>
+            {% else %}
+            <input class="form-check-input" type="checkbox" id="maintenanceCheckBox" value="option2">
+            {% endif %}
+            <label class="form-check-label text-light" for="maintenanceCheckBox">Maintenance </label>
+        </div>
+        <div class="form-check form-check-inline">
+            {% if options[2] == '1' %}
+            <input class="form-check-input" type="checkbox" id="othersCheckBox" value="option3" checked>
+            {% else %}
+            <input class="form-check-input" type="checkbox" id="othersCheckBox" value="option3">
+            {% endif %}
+            <label class="form-check-label text-light" for="othersCheckBox">Others</label>
+        </div>
+    </div>
+
+    <div class="scrollable">
+        <table class="table table-info table-hover">
+            <thead class="thead">
+                <tr>
+                    <th scope="col">Engine Serial Number</th>
+                    <th scope="col">Engine Part Number</th>
+                    <th scope="col">Engine Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for engine in engine_objects %}
+                <tr class='engineSummaryRows'>
+                    <th scope="row">{{ engine.eng_sn }}</th>
+                    <td>{{ engine.eng_pn }}</td>
+                    <td>{{ engine.status_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-1" id='engineInfoDiv' hidden>
+    <span class="text-light">Engine Information: </span>
+    <span class="text-light font-weight-bold" id="engineListSNLabel">(Click any row above)</span>
+    <table class="table table-info engineInfoTable">
+        <tbody>
+            <tr class="d-flex">
+                <td class='engAttrKey col-3'>Engine S/N</td>
+                <td id='cell_eng_sn' class="col-3"></td>
+                <td class='engAttrKey col-3'>Build Date</td>
+                <td id='cell_build_date' class="col-3"></td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='engAttrKey col-3'>Engine P/N</td>
+                <td id='cell_eng_pn' class="col-3"></td>
+                <td class='engAttrKey col-3'>Op. Hours</td>
+                <td id='cell_op_hrs' class="col-3"></td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='engAttrKey col-3'>Customer</td>
+                <td id='cell_customer' class="col-3"></td>
+                <td class='engAttrKey col-3'>Total Cycles</td>
+                <td id='cell_cycle' class="col-3"></td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='engAttrKey col-3'>Maint. Site</td>
+                <td id='cell_maint_site' class="col-3"></td>
+                <td class='engAttrKey col-3'>Engine Status</td>
+                <td id='cell_engine_status' class="col-3"></td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='engAttrKey col-3'>Latest Maint. Log ID</td>
+                <td id='cell_maint_log_id' class="col-3"></td>
+                <td class='engAttrKey col-3'>Current Maint. Status</td>
+                <td id='cell_maint_status' class="col-3"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

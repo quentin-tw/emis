@@ -1,0 +1,79 @@
+{% extends 'layout.html' %}
+{% block content %}
+<span class="text-light" id="dashboardLoadingLabel">Loading...</span>
+<div id="dashboardLoadingGroup" hidden>
+    <div class="mt-2">
+    <div class="row mt-2">
+        <div class="col-md-6 chart-container">
+        <p class="text-light">Engine Counts</p>
+            <canvas id="totalEngineChart"></canvas>
+        </div>
+        <div class="col-md-6 chart-container">
+        <p class="text-light">Maintenance Site Turnaround Time</p>
+            <canvas id="TATchart"></canvas>
+        </div>
+        </div>
+        <span class="text-light">Summary</span>
+        <table class="table table-info dashboardTables">
+            <thead class="thead">
+                <tr class="d-flex">
+                    <th scope="col" class="align-top col-3">#Engines</th>
+                    <th scope="col" class="align-top col-3">#Engine Types</th>
+                    <th scope="col" class="align-top col-3">#Sites</th>
+                    <th scope="col" class="align-top col-3">#Customers</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class='dashboardSummaryRows d-flex'>
+                    <td class="col-3" id="numEngines"></td>
+                    <td class="col-3" id="numTypes"></td>
+                    <td class="col-3" id="numSites"></td>
+                    <td class="col-3" id="numCustomers"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <span class="text-light">Engines</span>
+        <table class="table table-info dashboardTables">
+            <thead class="thead">
+                <tr class="d-flex">
+                    <th scope="col" class="align-top col-3">#In service</th>
+                    <th scope="col" class="align-top col-3">#Repairing</th>
+                    <th scope="col" class="align-top col-3">#Transit</th>
+                    <th scope="col" class="align-top col-3">#R&D</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class='dashboardEngineRows d-flex'>
+                    <td class="col-3" id="numInService"></td>
+                    <td class="col-3" id="numRepairing"></td>
+                    <td class="col-3" id="numInTransit"></td>
+                    <td class="col-3" id="numRD"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div>
+        <span class="text-light">Pending For Actions (Click to see the maintenance log)</span>
+        <table class="table table-info table-hover dashboardTables" id="pendingTables">
+            <thead class="thead">
+                <tr class="d-flex">
+                    <th scope="col" class="align-top col-1">Engine S/N</th>
+                    <th scope="col" class="align-top col-1">Sites</th>
+                    <th scope="col" class="align-top col-1">MLog ID</th>
+                    <th scope="col" class="align-top col-3">Maint Status</th>
+                    <th scope="col" class="align-top col-3">Repair Start date</th>
+                    <th scope="col" class="align-top col-3">Owner name (ID)</th>
+
+                </tr>
+            </thead>
+            <tbody id="dashboardPendingBody">
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

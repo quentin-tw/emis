@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-1" id='accountInfoDiv'>
+    <span class="text-light">Account: </span>
+    <table class="table table-info accountInfoTable col-sm-6">
+        <tbody>
+            <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>ID</td>
+                <td id='cell_user_id' class="col-sm-8">{{ current_user.get_id() }}</td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>Username</td>
+                <td id='cell_username' class="col-sm-8">{{ user.query.get(current_user.get_id()).username }}</td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>Full Name</td>
+                <td id='cell_fullname' class="col-sm-8">{{ user.query.get(current_user.get_id()).fullname }}</td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>Site</td>
+                <td id='cell_fullname' class="col-sm-8">{{ user.query.get(current_user.get_id()).site_id }}</td>
+
+            </tr>
+            <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>Email</td>
+                <td id='cell_email' class="col-sm-8">{{ user.query.get(current_user.get_id()).email }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="{{ url_for('logout') }}" class="btn btn-light">Log out</a>
+</div>
+{% endblock %}

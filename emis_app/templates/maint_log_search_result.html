@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="mt-2">
+    <span class="text-light mr-5">Maintenance Log Search Result: </span>
+    <div class="scrollable">
+        <table class="table table-info">
+            <thead class="thead">
+                <tr>
+                    <th scope="col" class="align-top">ID</th>
+                    <th scope="col" class="align-top">Engine Serial No.</th>
+                    <th scope="col" class="align-top">Maint. Site</th>
+                    <th scope="col" class="align-top">Maint. Type</th>
+                    <th scope="col" class="align-top">Current Status</th>
+                    <th scope="col" class="align-top">Note</th>
+                </tr>
+            </thead>
+            <tbody id="maintLogListBody">
+                <tr class='logSummaryRows'>
+                    <th scope="row">{{ log[0].id }}</th>
+                    <td>{{ log[0].eng_sn }}</td>
+                    <td>{{ log[0].maint_site_id }}</td>
+                    <td>{{ log[1].description }}</td>
+                    <td>{{ log[2].description }}</td>
+                    <td>{{ log[0].note }}</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+    <table class="table table-info mb-0">
+        <span class="text-light text-bold" id="maint-log-detail-label">Log Detail</span>
+        <thead class="thead" id="log-detail-head">
+            <tr>
+                <th scope="col" class="align-top">Maint. Start Date</th>
+                <th scope="col" class="align-top">Maint. Complete Date</th>
+                <th scope="col" class="align-top">Maint. Cost</th>
+                <th scope="col" class="align-top">Contact (ID)</th>
+            </tr>
+        </thead>
+        <tbody id="maintLogDetailBody">
+            <tr class='logSummaryRows'>
+                <th scope="row">{{ log[0].in_date }}</th>
+                <td>{{ log[0].out_date }}</td>
+                <td>{{ log[0].maint_cost }}</td>
+                <td>{{ log[3].fullname }} ({{ log[3].id }})</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-info mt-0">
+        <thead class="thead" id="log-detail-head">
+            <tr>
+                <th scope="row" class="align-top">Contact Email</th>
+            </tr>
+        </thead>
+        <tbody id="emailBody">
+            <td>{{ log[3].email }}</td>
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
