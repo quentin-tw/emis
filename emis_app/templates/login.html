@@ -5,7 +5,7 @@
         <div class="col-md-6">
             <a href="{{ url_for('about') }}">
                 <h5 class="text-light">
-                    Engine Maintenance Information System (EMIS)
+                    Engine Maintenance Information System (EMIS) Login
                 </h5>
             </a>
         </div>
@@ -16,11 +16,11 @@
             {{ login_form.hidden_tag() }}
             <div class="form-group">
                 {{ login_form.username.label(class="form-control-label text-light justify-content-center") }}
-                {{ login_form.username(class="form-control justify-content-center") }}
+                {{ login_form.username(class="form-control justify-content-center", placeholder="Example: user1") }}
             </div>
             <div class="form-group">
                 {{ login_form.password.label(class="form-control-label text-light") }}
-                {{ login_form.password(class="form-control") }}
+                {{ login_form.password(class="form-control", placeholder="Example: user1") }}
             </div>
 
             <div class="form-group">
@@ -36,20 +36,20 @@
             </p>
             <ul>
                 <li>
-                    Username: user1 (Password: user1)
+                    Username: <b>user1</b> (Password: <b>user1</b>)
                     <p>
                         Higher authorization level
                     </p>
                 </li>
                 <li>
-                    Username: user2 (Password: user2)
+                    Username: <b>user2</b> (Password: <b>user2</b>)
                     <p>
                         Lower authorization level
                     </p>
                 </li>
             </ul>
             <p>
-                Check <a href="{{ url_for('about') }}">about</a> page for more information.
+                Check <a href="{{ url_for('about') }}">about</a> page for more information about this website.
             </p>
 
         </div>
@@ -58,7 +58,7 @@
     <p class="text-justify text-secondary">
         Built by Kuen-Hsiang Chen, 2021
         <a href="https://www.linkedin.com/in/quentinchen-tw/"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/quentin-tw/emis"><i class="fab fa-github-square"></i></a>
+        <a href="https://github.com/quentin-tw/"><i class="fab fa-github-square"></i></a>
     </p>
     </div>
 </div>

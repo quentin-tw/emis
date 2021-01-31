@@ -25,6 +25,11 @@
 
             </tr>
             <tr class="d-flex">
+                <td class='accountAttrKey col-sm-4'>Position</td>
+                <td id='cell_fullname' class="col-sm-8">{{ user.query.get(current_user.get_id()).position }}</td>
+
+            </tr>
+            <tr class="d-flex">
                 <td class='accountAttrKey col-sm-4'>Email</td>
                 <td id='cell_email' class="col-sm-8">{{ user.query.get(current_user.get_id()).email }}</td>
             </tr>

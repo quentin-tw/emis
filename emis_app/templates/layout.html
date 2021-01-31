@@ -13,19 +13,19 @@
 <body>
     <div id='headerTemplate' class="container">
         <div class="d-flex justify-content-between">
-            <a class="p-1 text-light" href="{{ url_for('about') }}">About</a>
+            <a class="p-1 text-light" href="{{ url_for('about') }}"><u>About</u></a>
             {% if current_user.is_authenticated %}
             <div class="p-1">
-                <a href="{{ url_for('account') }}" class="text-light">Account Name: {{ base_user.query.get(current_user.get_id()).fullname }}</a>
-                <a href="{{ url_for('logout') }}" class="text-light ml-3">Logout</a></div>
+                <a href="{{ url_for('account') }}" class="text-light"><u>Account: {{ base_user.query.get(current_user.get_id()).fullname }}</u></a>
+                <a href="{{ url_for('logout') }}" class="text-light ml-2"><u>Logout</u></a></div>
   
             {% else %}
-            <div class="p-1"><a href="{{ url_for('login') }}" class="text-light">Login</a></div>
+            <div class="p-1"><a href="{{ url_for('login') }}" class="text-light"><u>Login</u></a></div>
             {% endif %}
         </div>
         <header>
-            <nav class="mt-2 navbar navbar-expand-lg navbar-light bg-info">
-                <a href="" class="navbar-brand font-weight-bold">EMIS</a>
+            <nav class="mt-0 navbar navbar-expand-lg navbar-light bg-info">
+                <a href="{{ url_for('dashboard') }}" class="navbar-brand font-weight-bold">EMIS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -52,7 +52,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark font-weight-bold" href="{{ url_for('users') }}" id="list-sites-nav-link">Users</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item" hidden>
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Input Data</a>
                         </li>
                     </ul>

@@ -31,11 +31,11 @@ function fill_dashboard(input_) {
       tableBody.insertAdjacentHTML('beforeend',
       `
       <tr class='dashboardPendingRows d-flex'>
-      <th scope="row" class="col-1" id="pendingSN">${engine.eng_sn}</th>
+      <th scope="row" class="col-2" id="pendingSN">${engine.eng_sn}</th>
       <td class="col-1" id="pendingSites">${engine.site_id}</td>
       <td class="col-1" id="pendingSites">${engine.maint_log_id}</td>
       <td class="col-3" id="pendingStatus">${engine.maint_status}</td>
-      <td class="col-3" id="pendingStartDate">${engine.in_date}</td>
+      <td class="col-2" id="pendingStartDate">${engine.in_date}</td>
       <td class="col-3" id="pendingStartDate">${engine.owner_name} (${engine.owner_id})</td>
       </tr>    
       `)
@@ -54,11 +54,11 @@ function fill_dashboard(input_) {
       tableBody.insertAdjacentHTML('beforeend',
       `
       <tr class='dashboardPendingRows d-flex'>
-      <th scope="row" class="col-1" id="pendingSN">${engine.eng_sn}</th>
+      <th scope="row" class="col-2" id="pendingSN">${engine.eng_sn}</th>
       <td class="col-1" id="pendingSites">${engine.maint_log_id}</td>
       <td class="col-3" id="pendingStatus">${engine.maint_status}</td>
       <td class="col-3" id="pendingStartDate">${engine.in_date}</td>
-      <td class="col-4" id="pendingStartDate">${engine.owner_name} (${engine.owner_id})</td>
+      <td class="col-3" id="pendingStartDate">${engine.owner_name} (${engine.owner_id})</td>
       </tr>    
       `)
     }
@@ -347,8 +347,8 @@ function fillMaintLog(result) {
     tableBody.insertAdjacentHTML('beforeend',
     `
     <tr class='logSummaryRows' id='${trID}'>
-    <th scope="row">${data.maint_log_id}</th>
-    <td>${data.eng_sn}</td>
+    <th scope="row" class="sticky-col">${data.maint_log_id}</th>
+    <td class="sticky-col">${data.eng_sn}</td>
     <td>${data.maint_site_id}</td>
     <td>${data.maint_type}</td>
     <td>${data.maint_status}</td>

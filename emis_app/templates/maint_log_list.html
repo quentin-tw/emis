@@ -2,16 +2,16 @@
 {% block content %}
 <div class="mt-2">
     <div id='logOption'>
-    <span class="text-light mr-5">Maintenance Log Information:</span>
+    <span class="text-light mr-4">Maintenance Log Info:</span>
     <input class="form-check-input" type="checkbox" id="activeCaseOnly" value="option1" checked>
-    <label class="form-check-label text-light" for="inServiceCheckBox">Active cases only</label>
+    <label class="form-check-label text-light" for="inServiceCheckBox">Open logs only</label>
     </div>
     <div class="scrollable">
         <table class="table table-info table-hover">
             <thead class="thead">
                 <tr>
-                    <th scope="col" class="align-top">ID</th>
-                    <th scope="col" class="align-top">Engine Serial No.</th>
+                    <th scope="col" class="align-top sticky-col">ID</th>
+                    <th scope="col" class="align-top sticky-col">Engine S/N</th>
                     <th scope="col" class="align-top">Maint. Site</th>
                     <th scope="col" class="align-top">Maint. Type</th>
                     <th scope="col" class="align-top">Current Status</th>
