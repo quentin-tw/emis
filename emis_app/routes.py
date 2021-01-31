@@ -382,20 +382,21 @@ def search():
 # For pour in dummy data only. These are PostgreSQL upsert operations so
 # updating the csv files will not have any issue as long as the data format is 
 # correct.
-@app.route('/upsert_action_page')
-def upsert_action_page():
-    db.create_all()
-    path = Path(__file__).parent
-    upsert_from_csv(Maint_status, f'{path}/emis_demo_data/maint_status.csv')
-    upsert_from_csv(Maint_types, f'{path}/emis_demo_data/maint_types.csv')
-    upsert_from_csv(Engine_status, f'{path}/emis_demo_data/engine_status.csv')
-    upsert_from_csv(Emis_users, f'{path}/emis_demo_data/emis_users.csv')
-    upsert_from_csv(Maint_sites, f'{path}/emis_demo_data/maint_sites.csv')
-    upsert_from_csv(Engines, f'{path}/emis_demo_data/engines.csv')
-    upsert_from_csv(Maint_log, f'{path}/emis_demo_data/maint_log.csv')
-    upsert_from_csv(Mst_change_log, f'{path}/emis_demo_data/mst_change_log.csv')
-    return render_template('upsert_complete.html', 
-                            Engines=Engines, session=db.session) 
+
+# @app.route('/upsert_action_page')
+# def upsert_action_page():
+#     db.create_all()
+#     path = Path(__file__).parent
+#     upsert_from_csv(Maint_status, f'{path}/emis_demo_data/maint_status.csv')
+#     upsert_from_csv(Maint_types, f'{path}/emis_demo_data/maint_types.csv')
+#     upsert_from_csv(Engine_status, f'{path}/emis_demo_data/engine_status.csv')
+#     upsert_from_csv(Emis_users, f'{path}/emis_demo_data/emis_users.csv')
+#     upsert_from_csv(Maint_sites, f'{path}/emis_demo_data/maint_sites.csv')
+#     upsert_from_csv(Engines, f'{path}/emis_demo_data/engines.csv')
+#     upsert_from_csv(Maint_log, f'{path}/emis_demo_data/maint_log.csv')
+#     upsert_from_csv(Mst_change_log, f'{path}/emis_demo_data/mst_change_log.csv')
+#     return render_template('upsert_complete.html', 
+#                             Engines=Engines, session=db.session) 
 
 # dashboard helper functions
 
