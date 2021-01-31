@@ -23,6 +23,10 @@ def index():
     else:
         return redirect(url_for('login'))
 
+@app.route('/thumbnail')
+def thumbnail():
+    return render_template('thumbnail.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
