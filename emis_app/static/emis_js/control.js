@@ -74,8 +74,8 @@ function addPendingClickEvent(input_) {
     row.addEventListener("click", () => {
       console.log(input_)
       let logID = 0;
-      if (input_.auth_level === '1') {
-        logID = row.children[3].textContent;
+      if (input_.auth_level === 1) {
+        logID = row.children[2].textContent;
         console.log(logID)
       } else {
         logID = row.children[1].textContent;
