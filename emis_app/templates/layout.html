@@ -12,7 +12,7 @@
 <body>
     <div id='headerTemplate' class="container">
         <div class="d-flex justify-content-between">
-            <a class="p-1 text-secondary" href="{{ url_for('about') }}">About</a>
+            <a class="p-1 text-light" href="{{ url_for('about') }}">About</a>
             {% if current_user.is_authenticated %}
             <div class="p-1">
                 <a href="{{ url_for('account') }}" class="text-light">Account Name: {{ base_user.query.get(current_user.get_id()).fullname }}</a>

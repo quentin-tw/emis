@@ -2,6 +2,16 @@
 {% block content %}
 <div class="formSection">
     <div class="row justify-content-center mt-3">
+        <div class="col-md-6">
+            <a href="{{ url_for('about') }}">
+                <h5 class="text-light">
+                    Engine Maintenance Information System (EMIS)
+                </h5>
+            </a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+
         <form method="POST" action="" class="col-md-6">
             {{ login_form.hidden_tag() }}
             <div class="form-group">
@@ -22,7 +32,7 @@
     <div class="row justify-content-center mt-2 px-3">
         <div class="col-md-6 alert alert-info" role="alert">
             <p>
-                Demo accounts:
+                You can try out the system using the following demo accounts:
             </p>
             <ul>
                 <li>
@@ -38,6 +48,9 @@
                     </p>
                 </li>
             </ul>
+            <p>
+                Check <a href="{{ url_for('about') }}">about</a> page for more information.
+            </p>
 
         </div>
     </div>
